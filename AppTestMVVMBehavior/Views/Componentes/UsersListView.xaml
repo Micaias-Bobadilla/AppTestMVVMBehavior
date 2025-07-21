@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="AppTestMVVMBehavior.Views.Componentes.UsersListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppTestMVVMBehavior.Views.Componentes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vm="clr-namespace:AppTestMVVMBehavior.ViewModels.Componentes"
+    Padding="10"
+    d:DataContext="{d:DesignInstance Type=vm:UsersListViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <Border
+            BorderBrush="Gray"
+            BorderThickness="1"
+            CornerRadius="8">
+            <ui:ListView
+                Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
+                ItemsSource="{Binding Users}"
+                SelectedItem="{Binding SelectedUser}">
+                <ui:ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ui:TextBlock
+                            Margin="5"
+                            Padding="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Appearance="Secondary"
+                            Text="{Binding FirstName}" />
+                    </DataTemplate>
+                </ui:ListView.ItemTemplate>
+            </ui:ListView>
+        </Border>
+    </Grid>
+</UserControl>
