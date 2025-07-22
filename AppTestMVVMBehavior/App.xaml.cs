@@ -54,6 +54,7 @@ namespace AppTestMVVMBehavior
                 services.AddSingleton<SettingsViewModel>();
                 services.AddSingleton<SliderManipulateViewModel>();
                 services.AddSingleton<ProgresSliderViewModel>();
+                services.AddSingleton<UserViewModel>();
 
                 //Messengers
                 services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
@@ -62,9 +63,9 @@ namespace AppTestMVVMBehavior
                 services.AddSingleton<DashboardPage>();
                 services.AddTransient<DataPage>();
                 services.AddSingleton<SettingsPage>();
-                services.AddSingleton<UsersView>(); 
                 services.AddSingleton<SliderManipulatePage>();
                 services.AddSingleton<ProgresSliderPage>();
+                services.AddSingleton<UsersView>(); 
             }).Build();
 
         /// <summary>

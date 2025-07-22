@@ -15,11 +15,5 @@ namespace AppTestMVVMBehavior.Views.Componentes
             InitializeComponent();
         }
 
-        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
-        {
-            var DAtaContext = DataContext as UserDetailViewModel;
-
-            DAtaContext.Cleanup();
-        }
     }
 }

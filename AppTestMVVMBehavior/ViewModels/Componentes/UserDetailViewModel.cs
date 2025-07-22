@@ -1,10 +1,11 @@
 ﻿using AppTestMVVMBehavior.Models;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using CommunityToolkit.Mvvm.Messaging;
+using Wpf.Ui.Abstractions.Controls;
 
 namespace AppTestMVVMBehavior.ViewModels.Componentes
 {
-    public partial class UserDetailViewModel : ObservableRecipient, IRecipient<ValueChangedMessage<User>>
+    public partial class UserDetailViewModel : ObservableRecipient, IRecipient<ValueChangedMessage<User>>, INavigationAware
     {
         [ObservableProperty]
         private string? _fullName;
@@ -34,6 +35,16 @@ namespace AppTestMVVMBehavior.ViewModels.Componentes
         public void Cleanup()
         {
             IsActive = false; // Esto desuscribe automáticamente al ViewModel del Messenger
+        }
+
+        public Task OnNavigatedToAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task OnNavigatedFromAsync()
+        {
+            return Task.CompletedTask;
         }
     }
 }

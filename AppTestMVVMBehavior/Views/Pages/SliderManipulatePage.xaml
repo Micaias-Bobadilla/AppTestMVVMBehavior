@@ -24,7 +24,7 @@
             IsSnapToTickEnabled="True"
             Maximum="100"
             Minimum="0"
-            TickFrequency="10"
+            TickFrequency="1"
             ToolTip="{Binding ViewModel.SliderValue, StringFormat='Current Value: {0}'}"
             Value="{Binding ViewModel.SliderValue, Mode=TwoWay}" />
     </Grid>

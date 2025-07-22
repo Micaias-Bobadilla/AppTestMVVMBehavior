@@ -16,11 +16,5 @@ namespace AppTestMVVMBehavior.Views.Pages
             DataContext = this;
             InitializeComponent();
         }
-
-       
-        public void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            ViewModel.Cleanup();
-        }
     }
 }

@@ -14,7 +14,6 @@
     d:DesignWidth="800"
     FontSize="14"
     Foreground="{ui:ThemeResource TextFillColorPrimaryBrush}"
-    Unloaded="UserControl_Unloaded"
     mc:Ignorable="d">
     <Grid>
         <Border

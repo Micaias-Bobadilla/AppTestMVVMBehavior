@@ -1,25 +1,36 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
+using Wpf.Ui.Abstractions.Controls;
 
 namespace AppTestMVVMBehavior.ViewModels.Pages
 {
     
-    public partial  class SliderManipulateViewModel :ObservableObject
+    public partial  class SliderManipulateViewModel :ObservableRecipient, INavigationAware
     {
 
         [ObservableProperty]
         public float _SliderValue;
 
-        private readonly IMessenger _messenger;
 
-        public SliderManipulateViewModel(IMessenger messenger)
+        public SliderManipulateViewModel()
         {
-            _messenger = messenger;
+            
         }
 
-        partial void OnSliderValueChanged(float value)
+
+        public Task OnNavigatedToAsync()
         {
-            _messenger.Send(new ValueChangedMessage<float>(value));    
+            return Task.CompletedTask;
+        }
+
+        public Task OnNavigatedFromAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        public void Receive(ValueChangedMessage<float> message)
+        {
+            SliderValue = message.Value;
         }
     }
 }

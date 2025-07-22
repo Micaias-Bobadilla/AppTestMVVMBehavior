@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using AppTestMVVMBehavior.ViewModels.Pages;
+using System.Windows.Controls;
 
 namespace AppTestMVVMBehavior.Views.Pages
 {
@@ -7,8 +8,11 @@ namespace AppTestMVVMBehavior.Views.Pages
     /// </summary>
     public partial class UsersView : Page
     {
-        public UsersView()
+        public UserViewModel ViewModel { get; }
+        public UsersView(UserViewModel viewModel)
         {
+            ViewModel = viewModel;
+            DataContext = this;
             InitializeComponent();
         }
     }
